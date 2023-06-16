@@ -7,7 +7,7 @@ const document = window.document
 
 describe('Vocals in phrase', () => {
 
-    it.skip('should return la', () => {
+    it('should return la', () => {
         document.body.innerHTML = /* html */
             `<div>
                 <input id="input-phrase" type="text" value="la">
@@ -18,19 +18,19 @@ describe('Vocals in phrase', () => {
         expect(result).toBe('la');
     });
 
-    it.skip('should return a', () => {
+    it('should return a', () => {
         document.body.innerHTML = /* html */
             `<div>
                 <input id="input-phrase" type="text" value="la">
             </div>`
 
-        let vocal = ['a'];
+        let vocal = 'a';
         let phrase = document.getElementById('input-phrase').value;
         let result = searchVocals(phrase);
         expect(result).toContain(vocal);
     });
 
-    it.skip('should return a,e,i,o,u', () => {
+    it('should return a,e,i,o,u', () => {
         document.body.innerHTML = /* html */
             `<div>
                 <input id="input-phrase" type="text" value="la le li lo lu">
