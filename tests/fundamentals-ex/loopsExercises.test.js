@@ -1,36 +1,47 @@
 import { describe, it } from "vitest";
-import { addSpanishInternationalPrefixes, countdown, createNumberList, makePizza } from "../../src/fundamentals-ex/loopsExercises.js";
+import { checkIfIsInteger, checkIfNumbIsDivisibleByThree, checkIfNumberIsInfinite, checkVariable, divide, multiply, subtract, sum } from "../../src/fundamentals-ex/numberExercises.js";
 
-describe('Loops', () => {
-    it('while loop, should return GO when count arrive to 0', () => {
-        expect(countdown()).toEqual('GO');
+describe('Numbers', () => {
+
+    it('should return "number"', () => {        
+        expect(checkVariable(1)).toBe("number");
     });
 
-    it('do ... while', () => {
-        expect(createNumberList()[0]).toEqual(1); // comprueba que el primer número sea el uno
-        expect(createNumberList()).toContain(10); // comprueba que el array contiene el número 10
-        expect(createNumberList()).toHaveLength(10); // comprueba que la longitud del array es de 10
+    it('should return false if is not an integer', () => {
+        expect(checkIfIsInteger(2.3)).toBe(false);
     });
 
-    it('for loop', () => {
-
-        let pizza = {
-            ingredient1: 'masa',
-            ingredient2: 'tomate',
-            ingredient3: 'mozzarella',
-            ingredient4: 'cheddar',
-            ingredient5: 'gorgonzola',
-            ingredient6: 'parmesano'
-        }
-
-        expect(makePizza()).toEqual(pizza);
+    it('should return "Number is Infinite"', () => {
+        const number = 5 * Infinity ;
+        expect(checkIfNumberIsInfinite(number)).toBe("Number is Infinite");
     });
 
-    it('foreach loop', () => {
-        let phoneNumberList = ['+34-054060719', '+34-029830776', '+34-159949736', '+34-663170151', '+34-513407584'];
+});
 
-        expect(addSpanishInternationalPrefixes()).toContain('+34-159949736');
-        expect(addSpanishInternationalPrefixes()).toEqual(expect.arrayContaining(phoneNumberList));;
+describe('Arithmetic operators', () => {
+    it('should return 25', () => {
+        const numb1 = 10;
+        const numb2 = 15;
+        expect(sum(numb1,numb2)).toBe(25);
+    });
 
+    it('should return 30 after subtract', () => {
+        const numb1 = 55;
+        expect(subtract(numb1)).toBe(30);
+    });
+
+    it('should return 15 after multiply', () => {
+        const numb1 = 3;
+        expect(multiply(numb1)).toBe(15);
+    });
+
+    it('should return 25 after divide', () => {
+        const numbOne = 50;
+        expect(divide(numbOne)).toBe(25);
+    });
+
+    it('should return 0 after use modulus operator', () => {
+        const numb1 = 3;
+        expect(checkIfNumbIsDivisibleByThree(numb1)).toBe('Number is divisible by 3');
     });
 });
