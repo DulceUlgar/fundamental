@@ -7,13 +7,6 @@ export function getPhrase(phrase) {
 }
 
 export function searchVocals(phrase) {
-    
-}
+    const vocals = [];
+    if(phrase.
 
-export function deleteDuplicity(list) {
-
-}
-
-export function getVocals(vocals) {
-    
-}
